@@ -149,7 +149,6 @@
       margin-bottom: 14px;
     }
 
-    /* Visible plain-text disclosure — always rendered in DOM, no JS */
     .disclosure-text {
       font-size: 0.92rem;
       color: #3a3a3a;
@@ -157,7 +156,18 @@
       margin-bottom: 16px;
     }
 
-    /* Checkbox row */
+    /* Required notice — explicit visible text telling user checkbox is required */
+    .required-notice {
+      background: #fff3cd;
+      border: 1px solid #e6a817;
+      border-radius: 5px;
+      padding: 8px 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #7a4f00;
+      margin-bottom: 14px;
+    }
+
     .checkbox-row {
       display: flex;
       gap: 12px;
@@ -178,7 +188,6 @@
     }
     .checkbox-label strong { color: #0f1a14; }
 
-    /* Policy links — directly beneath the consent block */
     .policy-links {
       margin-top: 14px;
       padding-top: 12px;
@@ -305,9 +314,9 @@
       <!-- ===== SMS CONSENT BLOCK ===== -->
       <div class="consent-block">
 
-        <h4>SMS &amp; Communications Consent <span class="req">*</span></h4>
+        <h4>SMS &amp; Communications Consent</h4>
 
-        <!-- Static visible disclosure text — plain HTML, no JavaScript, fully scanner-readable -->
+        <!-- Static visible disclosure — plain HTML, no JavaScript -->
         <p class="disclosure-text">
           By checking the box below, you consent to receive SMS text messages from
           <strong>Cancun Long Island</strong> at the phone number provided. Message types include:
@@ -318,7 +327,10 @@
           Consent is not a condition of purchase.
         </p>
 
-        <!-- Checkbox: required attribute set, NOT pre-checked -->
+        <!-- Explicit visible text stating the checkbox is required -->
+        <p class="required-notice">&#9888; This checkbox is required. You must check this box to submit the form.</p>
+
+        <!-- Checkbox: required attribute, NOT pre-checked -->
         <div class="checkbox-row">
           <input
             type="checkbox"
@@ -326,9 +338,10 @@
             name="sms_consent"
             value="yes"
             required
+            aria-required="true"
           />
           <label class="checkbox-label" for="sms-consent">
-            I agree to receive SMS text messages from <strong>Cancun Long Island</strong>
+            <strong>(Required)</strong> I agree to receive SMS text messages from <strong>Cancun Long Island</strong>
             regarding inquiries, bookings, scheduling, reminders, and promotions.
             Message frequency varies. Message and data rates may apply.
             Reply <strong>STOP</strong> to unsubscribe. Reply <strong>HELP</strong> for help.
@@ -336,7 +349,7 @@
           </label>
         </div>
 
-        <!-- Policy links directly under the consent checkbox -->
+        <!-- Policy links directly under consent -->
         <div class="policy-links">
           By submitting this form you agree to our
           <a href="privacy-policy.html">Privacy Policy</a>
